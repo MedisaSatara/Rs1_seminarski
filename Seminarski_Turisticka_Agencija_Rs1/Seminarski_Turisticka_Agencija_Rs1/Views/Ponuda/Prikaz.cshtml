@@ -1,0 +1,28 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Seminarski_Turisticka_Agencija_Rs1.Models.PonudaIndexVM
+@{
+}
+
+<input asp-for="OrganizatorId" value="@Model.OrganizatorId" hidden />
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Naziv ponude</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model.rows)
+        {
+            <tr>
+
+                <td>@x.NazivPonude</td>
+            </tr>
+            <button class="w3-button w3-dark-grey" onclick="location.href='https://localhost:44373/Ponuda/Index'">Prikazi sve</button>
+
+
+        }
+    </tbody>
+</table>

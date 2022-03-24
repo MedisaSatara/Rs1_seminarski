@@ -1,0 +1,46 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Seminarski_Turisticka_Agencija_Rs1.Models.TuristickiVodicIndexVM
+@{
+}
+
+<h1>Podaci o turistickim vodicima:</h1>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>Datum rodjenja</th>
+            <th>Telefon</th>
+            <th>Email</th>
+            <th>Grad</th>
+            <th>Drzava</th>
+            <th>Jezik koji govori</th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model.rows)
+        {
+        <tr>
+            <td>@x.Ime</td>
+            <td>@x.Prezime</td>
+            <td>@x.DatumRodjenja</td>
+            <td>@x.Telefon</td>
+            <td>@x.Email</td>
+            <td>@x.NazivGrada</td>
+                @foreach (var jezik in x.Jezik)
+                {
+                  <td>  @x.Jezik</td>
+
+                }
+
+
+
+            <td>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

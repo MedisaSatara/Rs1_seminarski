@@ -1,0 +1,42 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Seminarski_Turisticka_Agencija_Rs1.Models.RezervacijaIndexVM
+@{
+}
+
+<input asp-for="KorisnikId" value="@Model.KorisnikId" hidden />
+
+<h1>Podaci o korisnicima turisticke agencije:</h1>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>Broj odraslih osoba</th>
+            <th>Broj djece</th>
+            <th>Datum polaska</th>
+            <th>Datum povratka</th>
+            <th>Poruka</th>
+            <th>Ponuda</th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model.rows)
+        {
+            <tr>
+                <td>@x.Ime</td>
+                <td>@x.Prezime</td>
+                <td>@x.BrojOdraslihOsoba</td>
+                <td>@x.BrojDjece</td>
+                <td>@x.OD</td>
+                <td>@x.DO</td>
+                <td>@x.Poruka</td>
+                <td>@x.Ponuda</td>
+                <td>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

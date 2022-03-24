@@ -1,0 +1,48 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Seminarski_Turisticka_Agencija_Rs1.Models.OrganizatorDodajVM
+@{
+}
+
+<form asp-controller="Organizator" asp-action="Snimi" style="width: 100%; height: 700px; background-color: lightyellow; padding: 5px; margin: auto; ">
+    <input asp-for="AdministratorId" value="@Model.AdministratorId" hidden />
+
+    <h1>Dodaj organizatora:</h1>
+    <div class="form-group">
+        <label class="control-label">Ime</label>
+        <input asp-for="Ime" value="@Model.Ime" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">Prezime</label>
+        <input asp-for="Prezime" value="@Model.Prezime" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">Datum rodjenja</label>
+        <input asp-for="DatumRodjenja" value="@Model.DatumRodjenja" type="date" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">Telefon</label>
+        <input asp-for="Telefon" value="@Model.Telefon" type="text" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">Email</label>
+        <input asp-for="Email" value="@Model.Email" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">Grad</label>
+        <input asp-for="NazivGrada" value="@Model.NazivGrada" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">Drzava</label>
+        <input asp-for="NazivDrzave" value="@Model.NazivDrzave" class="form-control" />
+    </div>
+
+    <input type="submit" value="Snimi" />
+</form>

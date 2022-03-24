@@ -1,0 +1,106 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Seminarski_Turisticka_Agencija_Rs1.Models.AdministratorIndexVM
+@{
+}
+
+<!DOCTYPE html>
+<html>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<head>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-image: url(../images/big-welcome.jpg);
+            background-position: center;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    @foreach (var x in Model.rows)
+    {
+
+    <div class="w3-container">
+        <h2>Welcome, Administrator!</h2>
+        <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-green w3-large">Click here to go on your profile!</button>
+
+        <div id="id01" class="w3-modal">
+            <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+
+                <div class="w3-center">
+                    <br>
+                    <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
+                    <img src="~/images/administrator.jpg" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
+                </div>
+
+                <form class="w3-container">
+                    <div class="w3-section">
+                        <label><b>Ime</b></label>
+                        <input class="w3-input w3-border w3-margin-bottom" asp-for="@x.Ime" value="@x.Ime" type="text" readonly>
+                        <label><b>Prezime</b></label>
+                        <input class="w3-input w3-border w3-margin-bottom" asp-for="@x.Prezime" value="@x.Prezime" type="text" readonly>
+                        <label><b>Datum rodjenja</b></label>
+                        <input class="w3-input w3-border w3-margin-bottom" asp-for="@x.DatumRodjenja" value="@x.DatumRodjenja" type="text" readonly>
+                        <label><b>Email</b></label>
+                        <input class="w3-input w3-border w3-margin-bottom" asp-for="@x.Email" value="@x.Email" type="text" readonly>
+                        <label><b>Telefon</b></label>
+                        <input class="w3-input w3-border w3-margin-bottom" asp-for="@x.Telefon" value="@x.Telefon" type="text" readonly>
+                        <label><b>Grad</b></label>
+                        <input class="w3-input w3-border w3-margin-bottom" asp-for="@x.NazivGrada" value="@x.NazivGrada" type="text" readonly>
+                        <label><b>Drzava</b></label>
+                        <input class="w3-input w3-border w3-margin-bottom" asp-for="@x.NazivDrzave" value="@x.NazivDrzave" type="text" readonly>
+                        
+                    </div>
+                    <a asp-controller="Administrator" asp-action="Uredi" asp-route-Id="@x.AdministratorId">Uredi svoje podatke</a><br />
+
+
+                </form>
+
+
+
+            </div>
+        </div>
+        <button onclick="document.getElementById('id02').style.display='block'" class="w3-button w3-green w3-large">Click here to see your tasks!</button>
+        <div id="id02" class="w3-modal">
+            <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+                <form class="w3-container">
+                    <h3>Evidencija uposlenika:</h3>
+                    <a asp-controller="Organizator" asp-action="Index" asp-route-Id="@x.AdministratorId">Organizator</a><br />
+                    <a asp-controller="Prodavac" asp-action="Index" asp-route-Id="@x.AdministratorId">Prodavac</a><br />
+
+                    <br /><br />
+                    <h3>Evidencija korisnika:</h3>
+                    <a asp-controller="Korisnik" asp-action="Index" asp-route-Id="@x.AdministratorId">Korisnik</a>
+
+                </form>
+            </div>
+        </div>
+
+        <button onclick="document.getElementById('id03').style.display='block'" class="w3-button w3-green w3-large">Click here to see accounts!</button>
+        <div id="id03" class="w3-modal">
+            <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+                <form class="w3-container">
+                    <h3>Pregled racuna</h3>
+                    <a class="btn btn-primary" onclick="location.href='https://localhost:44373/Admin/Index'">Pregled user-a</a>
+                    <a class="btn btn-primary" onclick="location.href='https://localhost:44373/Admin/Create'">Kreiraj user-a</a>
+                    <a class="btn btn-primary" onclick="location.href='https://localhost:44373/Admin/Update'">Uredi user-a</a>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    }
+
+
+</body>
+</html>
